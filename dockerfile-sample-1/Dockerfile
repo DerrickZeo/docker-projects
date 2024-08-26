@@ -109,7 +109,8 @@ RUN set -x \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
     && ln -sf /dev/stderr /var/log/nginx/error.log \
 # create a docker-entrypoint.d directory
-    && mkdir /docker-entrypoint.d
+    && mkdir /docker-entrypoint.d\
+    && echo "DEPENDENCY INSTALLATION COMPLETE INSTALLATION COMPLETE!!!!!" 
 
 # COPY docker-entrypoint.sh /
 # COPY 10-listen-on-ipv6-by-default.sh /docker-entrypoint.d
@@ -117,7 +118,7 @@ RUN set -x \
 # COPY 30-tune-worker-processes.sh /docker-entrypoint.d
 # ENTRYPOINT ["/docker-entrypoint.sh"]
 
-EXPOSE 80
+EXPOSE 80 443 8080
 # expose these ports on the docker virtual network
 # you still need to use -p or -P to open/forward these ports on host
 
